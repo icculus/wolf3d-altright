@@ -204,17 +204,19 @@ Wolf.Player = (function() {
      */
     function copyPlayer(player, copyPlayer) {
         player.health = copyPlayer.health;
-        player.ammo = copyPlayer.ammo;
+        player.ammo = 0; //copyPlayer.ammo;
         player.score = copyPlayer.score;
         player.startScore = copyPlayer.startScore;
         player.lives = copyPlayer.lives;
         player.previousWeapon = copyPlayer.previousWeapon;
         player.weapon = copyPlayer.weapon;
         player.pendingWeapon = copyPlayer.pendingWeapon;
-        player.items = (copyPlayer.items & Wolf.ITEM_WEAPON_1) | 
-                       (copyPlayer.items & Wolf.ITEM_WEAPON_2) |
-                       (copyPlayer.items & Wolf.ITEM_WEAPON_3) |
-                       (copyPlayer.items & Wolf.ITEM_WEAPON_4);
+        player.weapon = player.pendingWeapon = Wolf.WEAPON_KNIFE;
+        player.items = (copyPlayer.items & Wolf.ITEM_WEAPON_1);
+//        player.items = (copyPlayer.items & Wolf.ITEM_WEAPON_1) |
+//                       (copyPlayer.items & Wolf.ITEM_WEAPON_2) |
+//                       (copyPlayer.items & Wolf.ITEM_WEAPON_3) |
+//                       (copyPlayer.items & Wolf.ITEM_WEAPON_4);
         player.nextExtra = copyPlayer.nextExtra;
     }
     
@@ -225,13 +227,13 @@ Wolf.Player = (function() {
      */
     function newGame(player) {
         player.health = 100;
-        player.ammo[Wolf.AMMO_BULLETS] = 8;
+        player.ammo[Wolf.AMMO_BULLETS] = 0; //8;
         player.score = 0;
         player.startScore = 0;
         player.lives = 3;
         player.previousWeapon = Wolf.WEAPON_KNIFE; //gsh
-        player.weapon = player.pendingWeapon = Wolf.WEAPON_PISTOL;
-        player.items = Wolf.ITEM_WEAPON_1 | Wolf.ITEM_WEAPON_2;
+        player.weapon = player.pendingWeapon = Wolf.WEAPON_KNIFE;
+        player.items = Wolf.ITEM_WEAPON_1; //| Wolf.ITEM_WEAPON_2;
         player.nextExtra = Wolf.EXTRAPOINTS;
     }
 
@@ -577,6 +579,7 @@ Wolf.Player = (function() {
 
 
     function giveWeapon(player, weapon) {
+/*
         var itemflag;
 
         giveAmmo(player, Wolf.AMMO_BULLETS, 6); // give some ammo with a weapon
@@ -592,6 +595,7 @@ Wolf.Player = (function() {
                 player.weapon = player.pendingWeapon = weapon;
             }
         }
+*/
     }
 
 
@@ -606,7 +610,7 @@ Wolf.Player = (function() {
         if (player.ammo[type] >= maxAmmo) {
             return false; // don't need
         }
-
+/*
         if (!player.ammo[type] && !player.attackFrame) {
             // knife was out
             player.weapon = player.pendingWeapon;
@@ -616,7 +620,7 @@ Wolf.Player = (function() {
         if (player.ammo[type] > maxAmmo) {
             player.ammo[type] = maxAmmo;
         }
-
+*/
         return true;
     }
     
@@ -630,6 +634,7 @@ Wolf.Player = (function() {
      * @param {number} skill The difficulty level.
      */
     function damage(player, attacker, points, skill) {
+        /* we are here to punch nazis, not take damage.
         var dx, dy,
             angle, playerAngle, deltaAngle;
         
@@ -697,6 +702,7 @@ Wolf.Player = (function() {
             player.faceOuch = true;
             player.faceCount = 0;
         }
+        */
     }
 
     function victorySpin(game, player, tics) {

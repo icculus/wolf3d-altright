@@ -208,6 +208,14 @@ Wolf.Powerups = (function() {
                 Wolf.Sound.startSound(null, null, 0, Wolf.CHAN_ITEM, "lsfx/034.wav", 1, Wolf.ATTN_NORM, 0);
                 break;
 
+            /* refuse to pick up weapons or ammo. */
+            case Wolf.pow_clip:
+            case Wolf.pow_clip2:
+            case Wolf.pow_25clip:
+            case Wolf.pow_machinegun:
+            case Wolf.pow_chaingun:
+                return false;
+/*
             // Weapon & Ammo
             case Wolf.pow_clip:
                 if (!Wolf.Player.giveAmmo(player, Wolf.AMMO_BULLETS, 8)) {
@@ -244,6 +252,7 @@ Wolf.Powerups = (function() {
                 player.faceCount = -100;
                 player.faceGotGun = true;
                 break;
+*/
 
             // Artifacts
             case Wolf.pow_fullheal:

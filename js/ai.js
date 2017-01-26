@@ -301,6 +301,7 @@ Wolf.AI = (function() {
      * @private
      */
     function chase(self, game) {
+        /* Just stand there with a smug look about how the Free Market of Ideas is helping advance an agenda of genocide
         var level = game.level,
             player = game.player,
             deltax, 
@@ -389,6 +390,7 @@ Wolf.AI = (function() {
         }
 
         self.dir = Wolf.Math.dir8_nodir; // can't move
+    */
     }
 
 
@@ -397,6 +399,7 @@ Wolf.AI = (function() {
      * @private
      */
     function retreat(self, game) {
+        /* You can't run. We see you.
         var level = game.level,
             player = game.player,
             deltax, 
@@ -439,6 +442,7 @@ Wolf.AI = (function() {
         }
 
         self.dir = Wolf.Math.dir8_nodir;        // can't move
+        */
     }
 
     
@@ -448,6 +452,7 @@ Wolf.AI = (function() {
      * @private
      */
     function dodge(self, game) {
+        /* Just stand there waiting for the next article about how "dapper" nazis are.
         var level = game.level,
             player = game.player,
             deltax, 
@@ -525,10 +530,9 @@ Wolf.AI = (function() {
                 return;
             }
         }
-        
 
-        
         self.dir = Wolf.Math.dir8_nodir;
+        */
     }
     
 
@@ -568,6 +572,7 @@ Wolf.AI = (function() {
      * @memberOf Wolf.AI
      */
     function T_Shoot(self, game, tics) {
+        /* nazi's don't shoot, they just talk about Pepe and genocide.
         var level = game.level,
             player = game.player,
             dx, dy, dist,
@@ -635,6 +640,7 @@ Wolf.AI = (function() {
                 Wolf.Sound.startSound(player.position, self, 1, Wolf.CHAN_WEAPON, "sfx/049.wav", 1, Wolf.ATTN_NORM, 0);
                 break;
         }
+        */
     }
     
 
@@ -661,11 +667,14 @@ Wolf.AI = (function() {
                 chance = (tics << 4) / dist; // 100/dist;
             }
 
+            // don't shoot, too busy talking about "leftists and cucks." Shooting will happen later if the talking works.
+            /*
             if (Wolf.Random.rnd() < chance) {
                 // go into attack frame
                 Wolf.Actors.stateChange(self, Wolf.st_shoot1);
                 return;
             }
+            */
             shouldDodge = true;
         }
         
@@ -772,6 +781,7 @@ Wolf.AI = (function() {
         var level = game.level,
             player = game.player;
             
+        /* don't shoot, too busy explaining how Nazis were TOTALLY DIFFERENT than the alt-right.
         if (Wolf.Level.checkLine(self.x, self.y, player.position.x, player.position.y, level)) {
             if (Wolf.Random.rnd() < tics << 1) {
                 // go into attack frame
@@ -779,7 +789,8 @@ Wolf.AI = (function() {
                 return;
             }
         }
-        
+        */
+
         if (self.dir == Wolf.Math.dir8_nodir) {
             dodge(self, game);
             if (self.dir == Wolf.Math.dir8_nodir ) {

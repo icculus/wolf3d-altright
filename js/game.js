@@ -104,7 +104,7 @@ Wolf.Game = (function() {
             rightKey = false,
             downKey = false,
             upKey = false,
-            changeWeapon = -1,
+            //changeWeapon = -1,
             mouseMovement,
             mouseCoords;
        
@@ -165,6 +165,7 @@ Wolf.Game = (function() {
         }
         
         // change weapon?
+/*
         if (Wolf.Input.checkKeys(controls.weapon1) && player.items & Wolf.ITEM_WEAPON_1) {
             changeWeapon = Wolf.WEAPON_KNIFE;
         } else if (Wolf.Input.checkKeys(controls.weapon2) && player.items & Wolf.ITEM_WEAPON_2 && player.ammo[Wolf.AMMO_BULLETS]) {
@@ -178,7 +179,7 @@ Wolf.Game = (function() {
             player.previousWeapon = Wolf.WEAPON_KNIFE;
             player.weapon = player.pendingWeapon = changeWeapon;
         }
-        
+*/
         if (Wolf.Input.checkKeys(controls.use)) {
             player.cmd.buttons |= Wolf.BUTTON_USE;
         }
@@ -957,7 +958,7 @@ Wolf.Game = (function() {
                 if (game.player.playstate == Wolf.ex_secretlevel) {
                     nextLevel = 9;
                 } else {
-                    if (game.levelNum == 8) { // Level was boss level - end of episode.
+                    if (true) {  // only one level here. //if (game.levelNum == 8) { // Level was boss level - end of episode.
                         $("#game").fadeOut(1000, function() {
                             startVictoryText(game);
                         });

@@ -230,7 +230,7 @@ Wolf.Menu = (function() {
             if (!menuInputActive) {
                 return;
             }
-            var episode = $(this).data("episode");
+            var episode = "0";  //$(this).data("episode");
             if (Wolf.Game.isPlaying()) {
                 showMessage("confirm-newgame", true, function(result) {
                     if (result) {
@@ -250,7 +250,16 @@ Wolf.Menu = (function() {
             if (!menuInputActive) {
                 return;
             }
+
+            // since the episode and level menus are removed, I mushed their functionality into here.
+            activeEpisode = "0";
             activeSkill = $(this).data("skill");
+
+            // this is normally in the level menu, but we skip that one. Start game!
+            hide();
+            var level = "0";
+            gameState = Wolf.Game.startGame(Wolf[activeSkill]);
+            Wolf.Game.startLevel(gameState, activeEpisode, level);
         });
         
         $("#menu div.menu.main li.resumegame").on("click", function(e) {

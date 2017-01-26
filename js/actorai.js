@@ -540,6 +540,10 @@ Wolf.ActorAI = (function() {
         
         self.flags &= ~Wolf.FL_SHOOTABLE;
         self.flags |= Wolf.FL_NONMARK;
+
+        // BJ smiles when he knocks out a nazi.
+        player.faceCount = -100;
+        player.faceGotGun = true;
     }
     
     return {
