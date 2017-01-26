@@ -823,6 +823,7 @@ Wolf.Level = (function() {
                         Wolf.Actors.spawnPatrol(level, skill, Wolf.en_ss, x, y, tile - 130);
                         break;
                     // dogs
+                    /* Don't spawn dogs. We're here to punch Nazis, not good puppers.
                     case 206:
                     case 207:
                     case 208:
@@ -875,6 +876,7 @@ Wolf.Level = (function() {
                         }
                         Wolf.Actors.spawnPatrol(level, skill, Wolf.en_dog, x, y, tile - 138);
                         break;
+                    */
                     // bosses
                     case 214:
                         Wolf.Sprites.cacheTextures(Wolf.SPR_BOSS_W1, Wolf.SPR_BOSS_DIE3);
