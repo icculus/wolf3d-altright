@@ -955,10 +955,12 @@ Wolf.Game = (function() {
             }
             if (e.keyCode == 13 || e.keyCode == 32) {
                 exitIntermission();
+
+                /* only one level here.
                 if (game.player.playstate == Wolf.ex_secretlevel) {
                     nextLevel = 9;
                 } else {
-                    if (true) {  // only one level here. //if (game.levelNum == 8) { // Level was boss level - end of episode.
+                    if (game.levelNum == 8) { // Level was boss level - end of episode.
                         $("#game").fadeOut(1000, function() {
                             startVictoryText(game);
                         });
@@ -980,6 +982,10 @@ Wolf.Game = (function() {
                 }
                 Wolf.Player.givePoints(game.player, bonus);
                 startLevel(game, game.episodeNum, nextLevel);
+                */
+                $("#game").fadeOut(1000, function() {
+                    startVictoryText(game);
+                });
             }
         }
         
