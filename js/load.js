@@ -111,11 +111,13 @@ $(document).ready(function() {
             },
             complete : function() {
                 progress.remove();
+                setTimeout(function() {  // make the screen stay for a bit.
                 $("#title-screen").fadeOut(1500, function() {
                     Wolf.Input.init();
                     Wolf.Game.init();
                     Wolf.Menu.show();
                 });
+                }, 2000);
                 // preload non-essential art
                 Modernizr.load(files2);
             }

@@ -649,6 +649,8 @@ Wolf.Game = (function() {
             
             $("#game .loading").show();
 
+            setTimeout(function() {  // make the GET PSYCHED screen stay for a bit.
+
             preloadLevelAssets(level, function() {
                 
                 Wolf.Sound.startMusic(level.music);
@@ -671,6 +673,8 @@ Wolf.Game = (function() {
                 $("#game .renderer .player-weapon").show();
                 keyInputActive = true;
             });
+
+            }, 1500);
 
         });
     }
