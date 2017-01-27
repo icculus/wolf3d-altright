@@ -572,7 +572,7 @@ Wolf.AI = (function() {
      * @memberOf Wolf.AI
      */
     function T_Shoot(self, game, tics) {
-        /* nazi's don't shoot, they just talk about Pepe and genocide.
+        /* nazis don't shoot, they just talk about Pepe and genocide.
         var level = game.level,
             player = game.player,
             dx, dy, dist,
